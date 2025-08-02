@@ -903,7 +903,7 @@ export default function Home() {
                   <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
                   Server Status: Online
                 </span>
-                <span>Made with ❤️ in Indonesia</span>
+                <span>UPPER Team</span>
               </div>
             </div>
           </div>
