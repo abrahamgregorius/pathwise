@@ -681,7 +681,7 @@ export default function Home() {
                 className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100"
               >
                 <div className="flex items-center mb-6">
-                  <img
+                  <Image
                     src={testimonial.image || "/placeholder.svg"}
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full mr-4"
@@ -694,7 +694,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 italic leading-relaxed">
-                  "{testimonial.quote}"
+                  {testimonial.quote}
                 </p>
                 <div className="flex text-yellow-400 mt-4">
                   {[...Array(5)].map((_, i) => (
