@@ -279,7 +279,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch">
             {[
               {
                 icon: "📊",
@@ -306,15 +306,17 @@ export default function Home() {
                 color: "from-pink-500 to-red-500",
               },
             ].map((item, index) => (
-              <div key={index} className="group">
-                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-red-100">
+              <div key={index} className="group h-full">
+                <div className="flex flex-col h-full bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-red-100">
                   <div className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                  <p className="text-gray-600 leading-relaxed flex-grow">
+                    {item.desc}
+                  </p>
                   <div
                     className={`h-1 w-full bg-gradient-to-r ${item.color} rounded-full mt-6 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
                   ></div>
@@ -447,7 +449,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {[
               {
                 icon: "🔍",
@@ -486,8 +488,8 @@ export default function Home() {
                 color: "from-teal-500 to-green-500",
               },
             ].map((item, index) => (
-              <div key={index} className="group">
-                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+              <div key={index} className="group h-full">
+                <div className="flex flex-col h-full bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
                   <div
                     className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center text-2xl mb-6 transform group-hover:scale-110 transition-transform duration-300`}
                   >
@@ -496,7 +498,9 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                  <p className="text-gray-600 leading-relaxed flex-grow">
+                    {item.desc}
+                  </p>
                   <div
                     className={`h-1 w-full bg-gradient-to-r ${item.color} rounded-full mt-6 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
                   ></div>
@@ -684,6 +688,8 @@ export default function Home() {
                   <Image
                     src={testimonial.image || "/placeholder.svg"}
                     alt={testimonial.name}
+                    width={200}
+                    height={0}
                     className="w-12 h-12 rounded-full mr-4"
                   />
                   <div>
