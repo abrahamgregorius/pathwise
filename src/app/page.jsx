@@ -36,9 +36,9 @@ export default function Home() {
             </h1>
 
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
-              Platform navigasi karir terdepan untuk fresh graduate Indonesia.
+              Platform navigasi karir terdepan untuk fresh graduate Indonesia.{" "}
               <span className="font-semibold text-gray-800">
-                Dapatkan panduan personal, mentoring eksklusif,
+                Dapatkan panduan personal, mentoring eksklusif, {" "}
               </span>
               dan peluang kerja yang tepat untukmu.
             </p>
