@@ -1,11 +1,16 @@
-"use client"
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function DashboardLayout({ children }) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const pathname = usePathname()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const pathname = usePathname();
+
+  const handleLogout = () => {
+    document.cookie = "token=; path=/; max-age=0";
+    window.location.href = "/login";
+  };
 
   const menuItems = [
     {
@@ -78,14 +83,14 @@ export default function DashboardLayout({ children }) {
       icon: "⚙️",
       description: "Pengaturan akun",
     },
-  ]
+  ];
 
   const isActive = (href) => {
     if (href === "/dashboard") {
-      return pathname === "/dashboard"
+      return pathname === "/dashboard";
     }
-    return pathname.startsWith(href)
-  }
+    return pathname.startsWith(href);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -99,7 +104,7 @@ export default function DashboardLayout({ children }) {
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
+        className={`fixed inset-y-0 left-0 z-50 w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:inset-0 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -114,9 +119,22 @@ export default function DashboardLayout({ children }) {
                 PathWise
               </h1>
             </Link>
-            <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <button
+              onClick={() => setIsSidebarOpen(false)}
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
@@ -134,7 +152,9 @@ export default function DashboardLayout({ children }) {
             </div>
             <div className="mt-4 bg-blue-50 rounded-lg p-3">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-blue-900">Progress Karir</span>
+                <span className="text-sm font-medium text-blue-900">
+                  Progress Karir
+                </span>
                 <span className="text-sm font-bold text-blue-600">75%</span>
               </div>
               <div className="w-full bg-blue-200 rounded-full h-2">
@@ -159,18 +179,31 @@ export default function DashboardLayout({ children }) {
                     <span className="text-xl">{item.icon}</span>
                     <div className="flex-1">
                       <div className="font-medium">{item.title}</div>
-                      <div className={`text-xs ${isActive(item.href) ? "text-blue-100" : "text-gray-500"}`}>
+                      <div
+                        className={`text-xs ${
+                          isActive(item.href)
+                            ? "text-blue-100"
+                            : "text-gray-500"
+                        }`}
+                      >
                         {item.description}
                       </div>
                     </div>
                     {item.submenu && (
                       <svg
-                        className={`w-4 h-4 transition-transform ${isActive(item.href) ? "rotate-90" : ""}`}
+                        className={`w-4 h-4 transition-transform ${
+                          isActive(item.href) ? "rotate-90" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     )}
                   </Link>
@@ -200,7 +233,10 @@ export default function DashboardLayout({ children }) {
 
           {/* Logout */}
           <div className="p-4 border-t border-gray-200">
-            <button className="w-full flex items-center space-x-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-xl transition-colors">
+            <button
+              onClick={handleLogout}
+              className="w-full flex items-center space-x-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-xl transition-colors"
+            >
               <span className="text-xl">🚪</span>
               <span className="font-medium">Logout</span>
             </button>
@@ -209,14 +245,27 @@ export default function DashboardLayout({ children }) {
       </div>
 
       {/* Main Content */}
-      <div className="lg:ml-80">
+      <div className="lg:ml-80 ">
         {/* Top Header */}
         <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-30">
           <div className="flex items-center justify-between px-6 py-4">
             <div className="flex items-center space-x-4">
-              <button onClick={() => setIsSidebarOpen(true)} className="lg:hidden p-2 rounded-lg hover:bg-gray-100">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <button
+                onClick={() => setIsSidebarOpen(true)}
+                className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               </button>
               <div>
@@ -228,7 +277,12 @@ export default function DashboardLayout({ children }) {
             <div className="flex items-center space-x-4">
               {/* Notifications */}
               <button className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -245,8 +299,18 @@ export default function DashboardLayout({ children }) {
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                     <span className="text-white font-semibold text-sm">SP</span>
                   </div>
-                  <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <svg
+                    className="w-4 h-4 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </button>
               </div>
@@ -258,5 +322,5 @@ export default function DashboardLayout({ children }) {
         <main className="p-6">{children}</main>
       </div>
     </div>
-  )
+  );
 }

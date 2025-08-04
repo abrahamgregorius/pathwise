@@ -1,33 +1,44 @@
-"use client"
-import { useState } from "react"
-import Link from "next/link"
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { login } from "../../../lib/auth";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     rememberMe: false,
-  })
-  const [isLoading, setIsLoading] = useState(false)
-  const [showPassword, setShowPassword] = useState(false)
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-  setIsLoading(false)
-    // Redirect to dashboard
-    window.location.href = "/dashboard"
-  }
+    e.preventDefault();
+    try {
+      const userCredentials = await login(
+        formData["email"],
+        formData["password"]
+      );
+      const token = await userCredentials.user.getIdToken();
+      document.cookie = `token=${token}; path=/; max-age=${
+        60 * 60 * 24 * 7
+      }; secure; SameSite=Strict`;
+      router.push("/dashboard");
+    } catch (err) {
+      alert(`Login Failed: ${err.message}`);
+    }
+  };
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target
+    const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
-    }))
-  }
+    }));
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
@@ -54,14 +65,19 @@ export default function LoginPage() {
         {/* Login Card */}
         <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20 p-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Selamat Datang Kembali!</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              Selamat Datang Kembali!
+            </h2>
             <p className="text-gray-600">Masuk ke akun PathWise kamu</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Email
               </label>
               <div className="relative">
@@ -72,11 +88,16 @@ export default function LoginPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50"
+                  className="text-gray-700 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50"
                   placeholder="nama@email.com"
                 />
                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                  <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="h-5 w-5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -90,7 +111,10 @@ export default function LoginPage() {
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Password
               </label>
               <div className="relative">
@@ -101,7 +125,7 @@ export default function LoginPage() {
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50"
+                  className="text-gray-700 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50"
                   placeholder="Masukkan password"
                 />
                 <button
@@ -146,11 +170,17 @@ export default function LoginPage() {
                   onChange={handleChange}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-700">
+                <label
+                  htmlFor="rememberMe"
+                  className="ml-2 block text-sm text-gray-700"
+                >
                   Ingat saya
                 </label>
               </div>
-              <Link href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-500 font-medium">
+              <Link
+                href="/forgot-password"
+                className="text-sm text-blue-600 hover:text-blue-500 font-medium"
+              >
                 Lupa password?
               </Link>
             </div>
@@ -163,7 +193,11 @@ export default function LoginPage() {
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
                     <circle
                       className="opacity-25"
                       cx="12"
@@ -225,7 +259,11 @@ export default function LoginPage() {
                 type="button"
                 className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded-xl shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
                 <span className="ml-2">Facebook</span>
@@ -237,7 +275,10 @@ export default function LoginPage() {
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Belum punya akun?{" "}
-              <Link href="/register" className="text-blue-600 hover:text-blue-500 font-medium">
+              <Link
+                href="/register"
+                className="text-blue-600 hover:text-blue-500 font-medium"
+              >
                 Daftar sekarang
               </Link>
             </p>
@@ -245,5 +286,5 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
