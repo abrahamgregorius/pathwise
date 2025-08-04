@@ -45,27 +45,27 @@ export default function Navbar() {
             {/* Desktop Menu */}
             <div className="hidden lg:block">
               <div className="ml-10 flex items-center space-x-8">
-                <a
+                <Link
                   href="#fitur"
                   className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group"
                 >
                   Fitur
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#tentang"
                   className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group"
                 >
                   Tentang
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#komunitas"
                   className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group"
                 >
                   Komunitas
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
-                </a>
+                </Link>
                 <Link href="/login">
                   <button className="cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200">
                     Mulai Gratis
@@ -135,9 +135,11 @@ export default function Navbar() {
               Komunitas
             </a>
             <div className="px-4 pt-2">
-              <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
-                Mulai Gratis
-              </button>
+              <Link href="/login">
+                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                  Mulai Gratis
+                </button>
+              </Link>
             </div>
           </div>
         </div>
