@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../../lib/firebaseClient";
+import { doc, setDoc } from "firebase/firestore";
 
 export default function RegisterPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -41,15 +44,51 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
-    } else {
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
       setIsLoading(true);
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      setIsLoading(false);
-      // Redirect to dashboard
+
+      // 1. Create user in Firebase Auth
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+
+      const user = userCredential.user;
+
+      // 2. Store additional data in Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        fullName: formData.fullName,
+        email: formData.email,
+        university: formData.university,
+        major: formData.major,
+        graduationYear: formData.graduationYear,
+        location: formData.location,
+        careerInterests: formData.careerInterests,
+        skillLevel: formData.skillLevel,
+        preferredIndustry: formData.preferredIndustry,
+        agreeTerms: formData.agreeTerms,
+        createdAt: new Date(),
+      });
+
+      // 3. Redirect to dashboard
       window.location.href = "/dashboard";
+    } catch (err) {
+      console.error("Registration failed:", err);
+      alert(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -277,7 +316,7 @@ export default function RegisterPage() {
               key={option}
               type="button"
               onClick={() => handleCareerInterestChange(option)}
-              className={`p-3 text-sm rounded-xl border-2 transition-all duration-200 ${
+              className={`text-gray-700 p-3 text-sm rounded-xl border-2 transition-all duration-200 ${
                 formData.careerInterests.includes(option)
                   ? "border-blue-500 bg-blue-50 text-blue-700"
                   : "border-gray-300 bg-white hover:border-blue-300"
@@ -330,7 +369,7 @@ export default function RegisterPage() {
           name="preferredIndustry"
           value={formData.preferredIndustry}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50"
+          className="text-gray-700 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/50"
           placeholder="Contoh: Startup, BUMN, Multinational"
         />
       </div>

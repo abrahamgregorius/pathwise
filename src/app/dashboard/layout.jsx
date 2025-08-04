@@ -1,11 +1,33 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../lib/firebaseClient";
+import Image from "next/image";
 
 export default function DashboardLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnap = await getDoc(userDocRef);
+
+        if (userDocSnap.exists()) {
+          setUserData(userDocSnap.data()); // ✅ trigger re-render
+        }
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleLogout = () => {
     document.cookie = "token=; path=/; max-age=0";
@@ -118,6 +140,13 @@ export default function DashboardLayout({ children }) {
               <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 PathWise
               </h1>
+              {/* <Image
+                src={"/pathw.png"}
+                alt={"PathWise Logo"}
+                width={150}
+                height={0}
+                className="h-10 object-center object-cover rounded-full mr-4"
+              /> */}
             </Link>
             <button
               onClick={() => setIsSidebarOpen(false)}
@@ -143,10 +172,19 @@ export default function DashboardLayout({ children }) {
           <div className="p-6 border-b border-gray-200">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-semibold text-lg">SP</span>
+                <span className="text-white font-semibold text-lg">
+                  {userData?.fullName
+                    .toString()
+                    .split(" ")
+                    .map((word) => word[0])
+                    .join("")
+                    .toUpperCase()}
+                </span>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900">Sarah Putri</h3>
+                <h3 className="font-semibold text-gray-900">
+                  {userData?.fullName}
+                </h3>
                 <p className="text-sm text-gray-600">Fresh Graduate</p>
               </div>
             </div>
@@ -270,7 +308,10 @@ export default function DashboardLayout({ children }) {
               </button>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-                <p className="text-gray-600">Selamat datang kembali, Sarah!</p>
+                <p className="text-gray-600">
+                  Selamat datang kembali,{" "}
+                  {userData?.fullName.toString().split(" ")[0]}!
+                </p>
               </div>
             </div>
 
@@ -297,7 +338,14 @@ export default function DashboardLayout({ children }) {
               <div className="relative">
                 <button className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100 transition-colors">
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm">SP</span>
+                    <span className="text-white font-semibold text-sm">
+                      {userData?.fullName
+                        .toString()
+                        .split(" ")
+                        .map((word) => word[0])
+                        .join("")
+                        .toUpperCase()}
+                    </span>
                   </div>
                   <svg
                     className="w-4 h-4 text-gray-600"

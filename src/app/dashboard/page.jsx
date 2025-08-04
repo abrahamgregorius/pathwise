@@ -1,5 +1,9 @@
-"use client"
-import Link from "next/link"
+"use client";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { db } from "../../../lib/firebaseClient";
 
 export default function DashboardHome() {
   const stats = [
@@ -31,7 +35,7 @@ export default function DashboardHome() {
       icon: "📚",
       color: "from-orange-500 to-red-500",
     },
-  ]
+  ];
 
   const recentActivities = [
     {
@@ -62,7 +66,7 @@ export default function DashboardHome() {
       icon: "👨‍🏫",
       color: "bg-orange-100 text-orange-600",
     },
-  ]
+  ];
 
   const upcomingEvents = [
     {
@@ -83,7 +87,7 @@ export default function DashboardHome() {
       time: "Sabtu, 19:00",
       type: "webinar",
     },
-  ]
+  ];
 
   const jobRecommendations = [
     {
@@ -110,7 +114,26 @@ export default function DashboardHome() {
       match: "82%",
       logo: "/placeholder.svg?height=40&width=40",
     },
-  ]
+  ];
+
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnap = await getDoc(userDocRef);
+
+        if (userDocSnap.exists()) {
+          setUserData(userDocSnap.data()); // ✅ trigger re-render
+        }
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div className="space-y-8">
@@ -118,9 +141,12 @@ export default function DashboardHome() {
       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl p-8 text-white">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Selamat Datang, Sarah! 👋</h1>
+            <h1 className="text-3xl font-bold mb-2">
+              Selamat Datang, {userData?.fullName.toString().split(" ")[0]}! 👋
+            </h1>
             <p className="text-blue-100 text-lg">
-              Kamu sudah 75% lebih siap untuk memasuki dunia kerja. Ayo lanjutkan perjalanan karirmu!
+              Kamu sudah 75% lebih siap untuk memasuki dunia kerja. Ayo
+              lanjutkan perjalanan karirmu!
             </p>
           </div>
           <div className="hidden lg:block">
@@ -162,7 +188,9 @@ export default function DashboardHome() {
                 {stat.change}
               </span>
             </div>
-            <h3 className="text-gray-600 text-sm font-medium mb-1">{stat.title}</h3>
+            <h3 className="text-gray-600 text-sm font-medium mb-1">
+              {stat.title}
+            </h3>
             <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
           </div>
         ))}
@@ -174,8 +202,13 @@ export default function DashboardHome() {
         <div className="lg:col-span-2">
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Aktivitas Terbaru</h2>
-              <Link href="/dashboard/activity" className="text-blue-600 hover:text-blue-500 font-medium">
+              <h2 className="text-xl font-bold text-gray-900">
+                Aktivitas Terbaru
+              </h2>
+              <Link
+                href="/dashboard/activity"
+                className="text-blue-600 hover:text-blue-500 font-medium"
+              >
                 Lihat Semua
               </Link>
             </div>
@@ -191,9 +224,15 @@ export default function DashboardHome() {
                     {activity.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-900">{activity.title}</h3>
-                    <p className="text-gray-600 text-sm">{activity.description}</p>
-                    <p className="text-gray-400 text-xs mt-1">{activity.time}</p>
+                    <h3 className="font-semibold text-gray-900">
+                      {activity.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {activity.description}
+                    </p>
+                    <p className="text-gray-400 text-xs mt-1">
+                      {activity.time}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -204,13 +243,22 @@ export default function DashboardHome() {
         {/* Upcoming Events */}
         <div>
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Jadwal Mendatang</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">
+              Jadwal Mendatang
+            </h2>
             <div className="space-y-4">
               {upcomingEvents.map((event, index) => (
-                <div key={index} className="border-l-4 border-blue-500 pl-4 py-2">
-                  <h3 className="font-semibold text-gray-900 text-sm">{event.title}</h3>
+                <div
+                  key={index}
+                  className="border-l-4 border-blue-500 pl-4 py-2"
+                >
+                  <h3 className="font-semibold text-gray-900 text-sm">
+                    {event.title}
+                  </h3>
                   <p className="text-gray-600 text-xs">{event.description}</p>
-                  <p className="text-blue-600 text-xs font-medium mt-1">{event.time}</p>
+                  <p className="text-blue-600 text-xs font-medium mt-1">
+                    {event.time}
+                  </p>
                 </div>
               ))}
             </div>
@@ -224,14 +272,18 @@ export default function DashboardHome() {
 
           {/* Quick Actions */}
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Quick Actions</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">
+              Quick Actions
+            </h2>
             <div className="space-y-3">
               <Link
                 href="/dashboard/career/interview"
                 className="flex items-center space-x-3 p-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:from-blue-100 hover:to-purple-100 transition-all"
               >
                 <span className="text-xl">🎤</span>
-                <span className="font-medium text-gray-900">Mulai Interview Simulation</span>
+                <span className="font-medium text-gray-900">
+                  Mulai Interview Simulation
+                </span>
               </Link>
               <Link
                 href="/dashboard/career/cv-analyzer"
@@ -245,7 +297,9 @@ export default function DashboardHome() {
                 className="flex items-center space-x-3 p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl hover:from-orange-100 hover:to-red-100 transition-all"
               >
                 <span className="text-xl">👨‍🏫</span>
-                <span className="font-medium text-gray-900">Book Mentoring</span>
+                <span className="font-medium text-gray-900">
+                  Book Mentoring
+                </span>
               </Link>
             </div>
           </div>
@@ -255,17 +309,29 @@ export default function DashboardHome() {
       {/* Job Recommendations */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-gray-900">Rekomendasi Pekerjaan</h2>
-          <Link href="/dashboard/jobs/recommender" className="text-blue-600 hover:text-blue-500 font-medium">
+          <h2 className="text-xl font-bold text-gray-900">
+            Rekomendasi Pekerjaan
+          </h2>
+          <Link
+            href="/dashboard/jobs/recommender"
+            className="text-blue-600 hover:text-blue-500 font-medium"
+          >
             Lihat Semua
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {jobRecommendations.map((job, index) => (
-            <div key={index} className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+            <div
+              key={index}
+              className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow"
+            >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <img src={job.logo || "/placeholder.svg"} alt={job.company} className="w-10 h-10 rounded-lg" />
+                  <img
+                    src={job.logo || "/placeholder.svg"}
+                    alt={job.company}
+                    className="w-10 h-10 rounded-lg"
+                  />
                   <div>
                     <h3 className="font-semibold text-gray-900">{job.title}</h3>
                     <p className="text-gray-600 text-sm">{job.company}</p>
@@ -287,5 +353,5 @@ export default function DashboardHome() {
         </div>
       </div>
     </div>
-  )
+  );
 }
