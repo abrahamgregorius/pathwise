@@ -150,12 +150,12 @@ export default function DashboardLayout({ children }) {
             </Link>
             <button
               onClick={() => setIsSidebarOpen(false)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-10"
             >
               <svg
                 className="w-6 h-6"
                 fill="none"
-                stroke="currentColor"
+                stroke="#1A1A1A"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -233,7 +233,7 @@ export default function DashboardLayout({ children }) {
                           isActive(item.href) ? "rotate-90" : ""
                         }`}
                         fill="none"
-                        stroke="currentColor"
+                        stroke="#1A1A1A"
                         viewBox="0 0 24 24"
                       >
                         <path
@@ -295,7 +295,7 @@ export default function DashboardLayout({ children }) {
                 <svg
                   className="w-6 h-6"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="#1A1A1A"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -321,7 +321,7 @@ export default function DashboardLayout({ children }) {
                 <svg
                   className="w-6 h-6"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="#1A1A1A"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -350,7 +350,7 @@ export default function DashboardLayout({ children }) {
                   <svg
                     className="w-4 h-4 text-gray-600"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#1A1A1A"
                     viewBox="0 0 24 24"
                   >
                     <path
