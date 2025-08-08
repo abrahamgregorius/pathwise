@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { analyzeCV } from "../../../../../services/cvAnalyzer";
 
 export default function CVAnalyzerPage() {
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -13,22 +14,18 @@ export default function CVAnalyzerPage() {
       // Simulate analysis
       setIsAnalyzing(true);
       setTimeout(() => {
-        setIsAnalyzing(false);
-        setAnalysisResult({
-          score: 85,
-          strengths: [
-            "Format CV profesional dan rapi",
-            "Pengalaman relevan dengan posisi target",
-            "Skill teknis yang sesuai industri",
-          ],
-          improvements: [
-            "Tambahkan quantifiable achievements",
-            "Perbaiki section summary/objective",
-            "Sertakan portfolio link yang aktif",
-          ],
-          keywords: ["JavaScript", "React", "Node.js", "Git", "Agile"],
-          atsScore: 78,
-        });
+        setIsAnalyzing(true);
+        analyzeCV(file)
+          .then((analysis) => {
+            setAnalysisResult(analysis);
+          })
+          .catch((err) => {
+            console.error(err);
+            alert("Terjadi kesalahan saat analisis CV");
+          })
+          .finally(() => {
+            setIsAnalyzing(false);
+          });
       }, 3000);
     }
   };
