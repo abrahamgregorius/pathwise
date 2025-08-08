@@ -124,7 +124,7 @@ export default function JobRecommenderPage() {
                 <select
                   value={filters.location}
                   onChange={(e) => handleFilterChange("location", e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border text-gray-500 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="">Semua Lokasi</option>
                   {locations.map((location) => (
@@ -141,7 +141,7 @@ export default function JobRecommenderPage() {
                 <select
                   value={filters.salary}
                   onChange={(e) => handleFilterChange("salary", e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border text-gray-500 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="">Semua Range</option>
                   {salaryRanges.map((range) => (
@@ -158,7 +158,7 @@ export default function JobRecommenderPage() {
                 <select
                   value={filters.type}
                   onChange={(e) => handleFilterChange("type", e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border text-gray-500 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="">Semua Tipe</option>
                   {jobTypes.map((type) => (
@@ -175,7 +175,7 @@ export default function JobRecommenderPage() {
                 <select
                   value={filters.experience}
                   onChange={(e) => handleFilterChange("experience", e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border text-gray-500 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="">Semua Level</option>
                   {experienceLevels.map((level) => (
