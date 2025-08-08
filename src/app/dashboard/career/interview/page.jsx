@@ -87,7 +87,7 @@ export default function InterviewSimulationPage() {
                     <button
                       key={role}
                       onClick={() => setSelectedRole(role)}
-                      className={`p-4 text-left border-2 rounded-xl transition-all ${
+                      className={`p-4 text-gray-500 text-left border-2 rounded-xl transition-all ${
                         selectedRole === role
                           ? "border-purple-500 bg-purple-50 text-purple-700"
                           : "border-gray-200 hover:border-purple-300"
