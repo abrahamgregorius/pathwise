@@ -1,11 +1,20 @@
 "use client";
 import { useState } from "react";
 import { analyzeCV } from "../../../../../services/cvAnalyzer";
+import { getAuth } from "firebase/auth";
 
 export default function CVAnalyzerPage() {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState(null);
+
+  const ensureAuth = async () => {
+    const auth = getAuth();
+    if (!auth.currentUser) {
+      await signInAnonymously(auth);
+    }
+    return auth.currentUser.uid;
+  };
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
@@ -15,7 +24,21 @@ export default function CVAnalyzerPage() {
       setIsAnalyzing(true);
       setTimeout(() => {
         setIsAnalyzing(true);
-        analyzeCV(file)
+
+        
+        const auth = getAuth();
+        const currentUser = auth.currentUser;
+
+        if (!currentUser) {
+          alert("Kamu harus login dulu untuk menganalisis CV");
+          setIsAnalyzing(false);
+          return;
+        }
+
+        const userId = currentUser.uid;
+        console.log(userId)
+
+        analyzeCV(file, userId)
           .then((analysis) => {
             setAnalysisResult(analysis);
           })
