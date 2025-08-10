@@ -82,7 +82,7 @@ export default function JobRecommenderPage() {
   const locations = ["Jakarta", "Bandung", "Surabaya", "Yogyakarta", "Bali"]
   const salaryRanges = ["< 5 juta", "5-10 juta", "10-15 juta", "15-20 juta", "> 20 juta"]
   const jobTypes = ["Full-time", "Part-time", "Contract", "Internship"]
-  const experienceLevels = ["Fresh Graduate", "1-2 tahun", "2-3 tahun", "3-5 tahun", "> 5 tahun"]
+  const experienceLevels = ["Fresh Graduate", "1-2 tahun", ">2 tahun"]
 
   const handleFilterChange = (key, value) => {
     setFilters((prev) => ({ ...prev, [key]: value }))
