@@ -50,7 +50,7 @@ export async function analyzeCV(file, userId) {
             "improvements": [array string],
             "keywords": [array string]
           }
-          Analyze this CV and return the result as raw JSON only, without markdown, code fences, or explanations.
+          Analyze this CV and return the result as raw JSON only, without markdown, code fences, or explanations. Gunakan Bahasa Indonesia sebagai hasilnya
         `,
       },
     ]);
