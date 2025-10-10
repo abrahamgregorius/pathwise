@@ -14,7 +14,7 @@ export default function MentoringPage() {
       rating: 4.9,
       sessions: 156,
       price: "150k/session",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3BsYXlcLzBiN2Y0ZTliLWY1OWMtNDAyNC05ZjA2LWIzZGMxMjg1MGFiNy0xOTIwLTEwODAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo4Mjh9fX0=",
       expertise: ["Product Strategy", "Leadership", "Career Growth"],
       bio: "Experienced product manager with track record of launching successful products at scale.",
     },
@@ -27,7 +27,7 @@ export default function MentoringPage() {
       rating: 4.8,
       sessions: 89,
       price: "125k/session",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
       expertise: ["Technical Leadership", "Team Management", "Software Architecture"],
       bio: "Tech leader passionate about building high-performing engineering teams.",
     },
@@ -40,7 +40,7 @@ export default function MentoringPage() {
       rating: 4.9,
       sessions: 203,
       price: "200k/session",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://img.freepik.com/free-photo/young-handsome-man-wearing-casual-tshirt-blue-background-happy-face-smiling-with-crossed-arms-looking-camera-positive-person_839833-12963.jpg?semt=ais_hybrid&w=740&q=80",
       expertise: ["Data Science", "Machine Learning", "Analytics"],
       bio: "Data science expert with extensive experience in e-commerce and fintech.",
     },
@@ -148,7 +148,7 @@ export default function MentoringPage() {
                 <img
                   src={mentor.avatar || "/placeholder.svg"}
                   alt={mentor.name}
-                  className="w-20 h-20 rounded-full mx-auto mb-4"
+                  className="w-20 h-20 rounded-full object-cover object-center mx-auto mb-4"
                 />
                 <h3 className="font-bold text-gray-900">{mentor.name}</h3>
                 <p className="text-gray-600 text-sm">{mentor.title}</p>
@@ -158,11 +158,11 @@ export default function MentoringPage() {
               <div className="space-y-2 text-sm mb-4">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Experience:</span>
-                  <span className="font-medium">{mentor.experience}</span>
+                  <span className="font-medium text-gray-600">{mentor.experience}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Rating:</span>
-                  <span className="font-medium">
+                  <span className="font-medium text-gray-600">
                     ⭐ {mentor.rating} ({mentor.sessions} sessions)
                   </span>
                 </div>

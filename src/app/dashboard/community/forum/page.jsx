@@ -20,7 +20,7 @@ export default function ForumAlumniPage() {
       title: "Tips Negosiasi Gaji untuk Fresh Graduate",
       author: {
         name: "Sarah Putri",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
         title: "Software Engineer at Tokopedia",
         verified: true,
       },
@@ -38,7 +38,7 @@ export default function ForumAlumniPage() {
       title: "Roadmap Lengkap Menjadi Data Scientist di 2024",
       author: {
         name: "Ahmad Rahman",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3BsYXlcLzBiN2Y0ZTliLWY1OWMtNDAyNC05ZjA2LWIzZGMxMjg1MGFiNy0xOTIwLTEwODAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo4Mjh9fX0=",
         title: "Data Science Director at Shopee",
         verified: true,
       },
@@ -57,7 +57,7 @@ export default function ForumAlumniPage() {
       title: "Pengalaman Interview di 5 Startup Unicorn Indonesia",
       author: {
         name: "Budi Santoso",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "https://img.freepik.com/free-photo/young-handsome-man-wearing-casual-tshirt-blue-background-happy-face-smiling-with-crossed-arms-looking-camera-positive-person_839833-12963.jpg?semt=ais_hybrid&w=740&q=80",
         title: "Product Manager at Gojek",
         verified: true,
       },
@@ -134,11 +134,10 @@ export default function ForumAlumniPage() {
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`w-full text-left px-3 py-2 rounded-lg transition-colors ${
-                      selectedCategory === category.id
-                        ? "bg-blue-100 text-blue-700 font-medium"
-                        : "text-gray-700 hover:bg-gray-100"
-                    }`}
+                    className={`w-full text-left px-3 py-2 rounded-lg transition-colors ${selectedCategory === category.id
+                      ? "bg-blue-100 text-blue-700 font-medium"
+                      : "text-gray-700 hover:bg-gray-100"
+                      }`}
                   >
                     <div className="flex items-center justify-between">
                       <span>{category.name}</span>
@@ -154,15 +153,19 @@ export default function ForumAlumniPage() {
               <h3 className="font-semibold text-gray-900 mb-4">Top Contributors</h3>
               <div className="space-y-3">
                 {[
-                  { name: "Sarah Putri", posts: 24, avatar: "/placeholder.svg?height=32&width=32" },
-                  { name: "Ahmad Rahman", posts: 18, avatar: "/placeholder.svg?height=32&width=32" },
-                  { name: "Budi Santoso", posts: 15, avatar: "/placeholder.svg?height=32&width=32" },
+                  { name: "Sarah Putri", posts: 24, avatar: "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3BsYXlcLzBiN2Y0ZTliLWY1OWMtNDAyNC05ZjA2LWIzZGMxMjg1MGFiNy0xOTIwLTEwODAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo4Mjh9fX0=", },
+                  {
+                    name: "Ahmad Rahman", posts: 18, avatar: "https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+                  },
+                  {
+                    name: "Budi Santoso", posts: 15, avatar: "https://img.freepik.com/free-photo/young-handsome-man-wearing-casual-tshirt-blue-background-happy-face-smiling-with-crossed-arms-looking-camera-positive-person_839833-12963.jpg?semt=ais_hybrid&w=740&q=80",
+                  },
                 ].map((contributor, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <img
                       src={contributor.avatar || "/placeholder.svg"}
                       alt={contributor.name}
-                      className="w-8 h-8 rounded-full"
+                      className="w-8 h-8 rounded-full object-cover"
                     />
                     <div className="flex-1">
                       <p className="text-sm font-medium text-gray-900">{contributor.name}</p>
@@ -213,7 +216,7 @@ export default function ForumAlumniPage() {
                   <img
                     src={post.author.avatar || "/placeholder.svg"}
                     alt={post.author.name}
-                    className="w-12 h-12 rounded-full"
+                    className="w-12 h-12 rounded-full object-cover"
                   />
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-1">
