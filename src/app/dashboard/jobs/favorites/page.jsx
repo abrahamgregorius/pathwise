@@ -14,7 +14,8 @@ export default function FavoriteJobsPage() {
       savedDate: "2024-01-15",
       status: "active",
       deadline: "2024-02-15",
-      logo: "/placeholder.svg?height=50&width=50",
+      logo: "https://avatars.githubusercontent.com/u/10230001?s=280&v=4",
+      
     },
     {
       id: 2,
@@ -25,7 +26,8 @@ export default function FavoriteJobsPage() {
       savedDate: "2024-01-12",
       status: "active",
       deadline: "2024-02-10",
-      logo: "/placeholder.svg?height=50&width=50",
+      logo: "https://yt3.googleusercontent.com/VODMS6vAfBMjEmr--IsnIMH7flki7ewherbq_NJg37oj46c3IQchOHU8GqMITGN2zOS10EwctA=s900-c-k-c0x00ffffff-no-rj",
+
     },
     {
       id: 3,
@@ -36,7 +38,7 @@ export default function FavoriteJobsPage() {
       savedDate: "2024-01-08",
       status: "expired",
       deadline: "2024-01-20",
-      logo: "/placeholder.svg?height=50&width=50",
+      logo: "https://yt3.googleusercontent.com/m6n-XR5esmAezvZ-FNmwN4HYt4z2g07iTZ-zqEmkEIPuOF_xFYCazXBTQJAFJL1Zgpne1IZ65A=s900-c-k-c0x00ffffff-no-rj",
     },
   ]
 

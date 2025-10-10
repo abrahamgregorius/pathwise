@@ -71,7 +71,7 @@ export default function JobRecommenderPage() {
       experience: "3-5 tahun",
       match: 78,
       posted: "1 minggu lalu",
-      logo: "/placeholder.svg?height=50&width=50",
+      logo: "https://play-lh.googleusercontent.com/XHV1b3sL5GnU5uYp4SrBUHtcBHtRn84Pzxigx-dkJwD57NjFB14M3dKYiu7VddTlZdG_",
       description: "Mengelola roadmap produk dan berkolaborasi dengan tim engineering dan design",
       requirements: ["Product Strategy", "Analytics", "Leadership", "Agile"],
       benefits: ["Equity", "Health insurance", "Unlimited PTO"],
