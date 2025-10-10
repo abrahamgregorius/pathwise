@@ -18,254 +18,254 @@ export default function QuestionnairePage() {
       text: "Saya suka bekerja dengan tangan dan menggunakan alat-alat",
       type: "R",
     },
-    // {
-    //   id: 2,
-    //   text: "Saya lebih suka pekerjaan yang melibatkan aktivitas fisik",
-    //   type: "R",
-    // },
-    // {
-    //   id: 3,
-    //   text: "Saya tertarik untuk memperbaiki mesin atau peralatan elektronik",
-    //   type: "R",
-    // },
-    // { id: 4, text: "Saya suka bekerja di luar ruangan", type: "R" },
-    // {
-    //   id: 5,
-    //   text: "Saya lebih suka hasil kerja yang bisa dilihat secara konkret",
-    //   type: "R",
-    // },
-    // {
-    //   id: 6,
-    //   text: "Saya tertarik dengan pekerjaan teknis dan engineering",
-    //   type: "R",
-    // },
-    // { id: 7, text: "Saya suka membangun atau merakit sesuatu", type: "R" },
-    // {
-    //   id: 8,
-    //   text: "Saya lebih suka bekerja dengan objek daripada dengan orang",
-    //   type: "R",
-    // },
-    // {
-    //   id: 9,
-    //   text: "Saya tertarik dengan pekerjaan yang membutuhkan keterampilan manual",
-    //   type: "R",
-    // },
-    // {
-    //   id: 10,
-    //   text: "Saya suka pekerjaan yang praktis dan aplikatif",
-    //   type: "R",
-    // },
+    {
+      id: 2,
+      text: "Saya lebih suka pekerjaan yang melibatkan aktivitas fisik",
+      type: "R",
+    },
+    {
+      id: 3,
+      text: "Saya tertarik untuk memperbaiki mesin atau peralatan elektronik",
+      type: "R",
+    },
+    { id: 4, text: "Saya suka bekerja di luar ruangan", type: "R" },
+    {
+      id: 5,
+      text: "Saya lebih suka hasil kerja yang bisa dilihat secara konkret",
+      type: "R",
+    },
+    {
+      id: 6,
+      text: "Saya tertarik dengan pekerjaan teknis dan engineering",
+      type: "R",
+    },
+    { id: 7, text: "Saya suka membangun atau merakit sesuatu", type: "R" },
+    {
+      id: 8,
+      text: "Saya lebih suka bekerja dengan objek daripada dengan orang",
+      type: "R",
+    },
+    {
+      id: 9,
+      text: "Saya tertarik dengan pekerjaan yang membutuhkan keterampilan manual",
+      type: "R",
+    },
+    {
+      id: 10,
+      text: "Saya suka pekerjaan yang praktis dan aplikatif",
+      type: "R",
+    },
 
-    // // Investigative Questions (I)
-    // { id: 11, text: "Saya suka memecahkan masalah yang kompleks", type: "I" },
-    // {
-    //   id: 12,
-    //   text: "Saya tertarik untuk melakukan penelitian dan eksperimen",
-    //   type: "I",
-    // },
-    // { id: 13, text: "Saya suka menganalisis data dan informasi", type: "I" },
-    // { id: 14, text: "Saya tertarik dengan sains dan teknologi", type: "I" },
-    // {
-    //   id: 15,
-    //   text: "Saya suka berpikir secara logis dan sistematis",
-    //   type: "I",
-    // },
-    // {
-    //   id: 16,
-    //   text: "Saya tertarik untuk memahami bagaimana sesuatu bekerja",
-    //   type: "I",
-    // },
-    // {
-    //   id: 17,
-    //   text: "Saya suka membaca jurnal ilmiah atau artikel penelitian",
-    //   type: "I",
-    // },
-    // {
-    //   id: 18,
-    //   text: "Saya tertarik dengan matematika dan statistik",
-    //   type: "I",
-    // },
-    // {
-    //   id: 19,
-    //   text: "Saya suka bekerja secara independen dalam proyek penelitian",
-    //   type: "I",
-    // },
-    // {
-    //   id: 20,
-    //   text: "Saya tertarik untuk menemukan solusi inovatif",
-    //   type: "I",
-    // },
+    // Investigative Questions (I)
+    { id: 11, text: "Saya suka memecahkan masalah yang kompleks", type: "I" },
+    {
+      id: 12,
+      text: "Saya tertarik untuk melakukan penelitian dan eksperimen",
+      type: "I",
+    },
+    { id: 13, text: "Saya suka menganalisis data dan informasi", type: "I" },
+    { id: 14, text: "Saya tertarik dengan sains dan teknologi", type: "I" },
+    {
+      id: 15,
+      text: "Saya suka berpikir secara logis dan sistematis",
+      type: "I",
+    },
+    {
+      id: 16,
+      text: "Saya tertarik untuk memahami bagaimana sesuatu bekerja",
+      type: "I",
+    },
+    {
+      id: 17,
+      text: "Saya suka membaca jurnal ilmiah atau artikel penelitian",
+      type: "I",
+    },
+    {
+      id: 18,
+      text: "Saya tertarik dengan matematika dan statistik",
+      type: "I",
+    },
+    {
+      id: 19,
+      text: "Saya suka bekerja secara independen dalam proyek penelitian",
+      type: "I",
+    },
+    {
+      id: 20,
+      text: "Saya tertarik untuk menemukan solusi inovatif",
+      type: "I",
+    },
 
-    // // Artistic Questions (A)
-    // {
-    //   id: 21,
-    //   text: "Saya suka mengekspresikan kreativitas dalam pekerjaan",
-    //   type: "A",
-    // },
-    // {
-    //   id: 22,
-    //   text: "Saya tertarik dengan seni, musik, atau desain",
-    //   type: "A",
-    // },
-    // {
-    //   id: 23,
-    //   text: "Saya suka menciptakan sesuatu yang baru dan original",
-    //   type: "A",
-    // },
-    // {
-    //   id: 24,
-    //   text: "Saya lebih suka pekerjaan yang fleksibel dan tidak terlalu terstruktur",
-    //   type: "A",
-    // },
-    // { id: 25, text: "Saya tertarik untuk menulis atau bercerita", type: "A" },
-    // {
-    //   id: 26,
-    //   text: "Saya suka bekerja dalam lingkungan yang inspiratif",
-    //   type: "A",
-    // },
-    // {
-    //   id: 27,
-    //   text: "Saya tertarik dengan fotografi atau videografi",
-    //   type: "A",
-    // },
-    // {
-    //   id: 28,
-    //   text: "Saya suka menggunakan imajinasi dalam pekerjaan",
-    //   type: "A",
-    // },
-    // {
-    //   id: 29,
-    //   text: "Saya tertarik dengan fashion atau interior design",
-    //   type: "A",
-    // },
-    // {
-    //   id: 30,
-    //   text: "Saya suka pekerjaan yang memungkinkan ekspresi diri",
-    //   type: "A",
-    // },
+    // Artistic Questions (A)
+    {
+      id: 21,
+      text: "Saya suka mengekspresikan kreativitas dalam pekerjaan",
+      type: "A",
+    },
+    {
+      id: 22,
+      text: "Saya tertarik dengan seni, musik, atau desain",
+      type: "A",
+    },
+    {
+      id: 23,
+      text: "Saya suka menciptakan sesuatu yang baru dan original",
+      type: "A",
+    },
+    {
+      id: 24,
+      text: "Saya lebih suka pekerjaan yang fleksibel dan tidak terlalu terstruktur",
+      type: "A",
+    },
+    { id: 25, text: "Saya tertarik untuk menulis atau bercerita", type: "A" },
+    {
+      id: 26,
+      text: "Saya suka bekerja dalam lingkungan yang inspiratif",
+      type: "A",
+    },
+    {
+      id: 27,
+      text: "Saya tertarik dengan fotografi atau videografi",
+      type: "A",
+    },
+    {
+      id: 28,
+      text: "Saya suka menggunakan imajinasi dalam pekerjaan",
+      type: "A",
+    },
+    {
+      id: 29,
+      text: "Saya tertarik dengan fashion atau interior design",
+      type: "A",
+    },
+    {
+      id: 30,
+      text: "Saya suka pekerjaan yang memungkinkan ekspresi diri",
+      type: "A",
+    },
 
-    // // Social Questions (S)
-    // {
-    //   id: 31,
-    //   text: "Saya suka membantu orang lain menyelesaikan masalah",
-    //   type: "S",
-    // },
-    // {
-    //   id: 32,
-    //   text: "Saya tertarik untuk mengajar atau melatih orang lain",
-    //   type: "S",
-    // },
-    // {
-    //   id: 33,
-    //   text: "Saya suka bekerja dalam tim dan berkolaborasi",
-    //   type: "S",
-    // },
-    // {
-    //   id: 34,
-    //   text: "Saya tertarik dengan pekerjaan di bidang kesehatan atau sosial",
-    //   type: "S",
-    // },
-    // {
-    //   id: 35,
-    //   text: "Saya suka mendengarkan dan memberikan saran kepada orang lain",
-    //   type: "S",
-    // },
-    // {
-    //   id: 36,
-    //   text: "Saya tertarik untuk membuat perbedaan positif di masyarakat",
-    //   type: "S",
-    // },
-    // {
-    //   id: 37,
-    //   text: "Saya suka pekerjaan yang melibatkan interaksi dengan banyak orang",
-    //   type: "S",
-    // },
-    // {
-    //   id: 38,
-    //   text: "Saya tertarik dengan psikologi atau konseling",
-    //   type: "S",
-    // },
-    // {
-    //   id: 39,
-    //   text: "Saya suka mengorganisir kegiatan sosial atau komunitas",
-    //   type: "S",
-    // },
-    // {
-    //   id: 40,
-    //   text: "Saya tertarik untuk bekerja dengan anak-anak atau remaja",
-    //   type: "S",
-    // },
+    // Social Questions (S)
+    {
+      id: 31,
+      text: "Saya suka membantu orang lain menyelesaikan masalah",
+      type: "S",
+    },
+    {
+      id: 32,
+      text: "Saya tertarik untuk mengajar atau melatih orang lain",
+      type: "S",
+    },
+    {
+      id: 33,
+      text: "Saya suka bekerja dalam tim dan berkolaborasi",
+      type: "S",
+    },
+    {
+      id: 34,
+      text: "Saya tertarik dengan pekerjaan di bidang kesehatan atau sosial",
+      type: "S",
+    },
+    {
+      id: 35,
+      text: "Saya suka mendengarkan dan memberikan saran kepada orang lain",
+      type: "S",
+    },
+    {
+      id: 36,
+      text: "Saya tertarik untuk membuat perbedaan positif di masyarakat",
+      type: "S",
+    },
+    {
+      id: 37,
+      text: "Saya suka pekerjaan yang melibatkan interaksi dengan banyak orang",
+      type: "S",
+    },
+    {
+      id: 38,
+      text: "Saya tertarik dengan psikologi atau konseling",
+      type: "S",
+    },
+    {
+      id: 39,
+      text: "Saya suka mengorganisir kegiatan sosial atau komunitas",
+      type: "S",
+    },
+    {
+      id: 40,
+      text: "Saya tertarik untuk bekerja dengan anak-anak atau remaja",
+      type: "S",
+    },
 
-    // // Enterprising Questions (E)
-    // { id: 41, text: "Saya suka memimpin tim atau proyek", type: "E" },
-    // { id: 42, text: "Saya tertarik untuk memulai bisnis sendiri", type: "E" },
-    // {
-    //   id: 43,
-    //   text: "Saya suka meyakinkan orang lain tentang ide saya",
-    //   type: "E",
-    // },
-    // { id: 44, text: "Saya tertarik dengan penjualan dan marketing", type: "E" },
-    // { id: 45, text: "Saya suka mengambil risiko dalam pekerjaan", type: "E" },
-    // {
-    //   id: 46,
-    //   text: "Saya tertarik dengan dunia bisnis dan keuangan",
-    //   type: "E",
-    // },
-    // {
-    //   id: 47,
-    //   text: "Saya suka bernegosiasi dan membuat kesepakatan",
-    //   type: "E",
-    // },
-    // {
-    //   id: 48,
-    //   text: "Saya tertarik untuk mengelola orang dan sumber daya",
-    //   type: "E",
-    // },
-    // { id: 49, text: "Saya suka pekerjaan yang kompetitif", type: "E" },
-    // {
-    //   id: 50,
-    //   text: "Saya tertarik dengan politik atau kebijakan publik",
-    //   type: "E",
-    // },
+    // Enterprising Questions (E)
+    { id: 41, text: "Saya suka memimpin tim atau proyek", type: "E" },
+    { id: 42, text: "Saya tertarik untuk memulai bisnis sendiri", type: "E" },
+    {
+      id: 43,
+      text: "Saya suka meyakinkan orang lain tentang ide saya",
+      type: "E",
+    },
+    { id: 44, text: "Saya tertarik dengan penjualan dan marketing", type: "E" },
+    { id: 45, text: "Saya suka mengambil risiko dalam pekerjaan", type: "E" },
+    {
+      id: 46,
+      text: "Saya tertarik dengan dunia bisnis dan keuangan",
+      type: "E",
+    },
+    {
+      id: 47,
+      text: "Saya suka bernegosiasi dan membuat kesepakatan",
+      type: "E",
+    },
+    {
+      id: 48,
+      text: "Saya tertarik untuk mengelola orang dan sumber daya",
+      type: "E",
+    },
+    { id: 49, text: "Saya suka pekerjaan yang kompetitif", type: "E" },
+    {
+      id: 50,
+      text: "Saya tertarik dengan politik atau kebijakan publik",
+      type: "E",
+    },
 
-    // // Conventional Questions (C)
-    // {
-    //   id: 51,
-    //   text: "Saya suka pekerjaan yang terorganisir dan terstruktur",
-    //   type: "C",
-    // },
-    // {
-    //   id: 52,
-    //   text: "Saya tertarik dengan akuntansi atau administrasi",
-    //   type: "C",
-    // },
-    // { id: 53, text: "Saya suka bekerja dengan data dan angka", type: "C" },
-    // {
-    //   id: 54,
-    //   text: "Saya tertarik untuk mengikuti prosedur dan aturan yang jelas",
-    //   type: "C",
-    // },
-    // { id: 55, text: "Saya suka pekerjaan yang detail dan teliti", type: "C" },
-    // {
-    //   id: 56,
-    //   text: "Saya tertarik dengan sistem informasi atau database",
-    //   type: "C",
-    // },
-    // {
-    //   id: 57,
-    //   text: "Saya suka pekerjaan yang memiliki rutinitas yang jelas",
-    //   type: "C",
-    // },
-    // {
-    //   id: 58,
-    //   text: "Saya tertarik dengan analisis keuangan atau audit",
-    //   type: "C",
-    // },
-    // {
-    //   id: 59,
-    //   text: "Saya suka mengorganisir dokumen dan informasi",
-    //   type: "C",
-    // },
+    // Conventional Questions (C)
+    {
+      id: 51,
+      text: "Saya suka pekerjaan yang terorganisir dan terstruktur",
+      type: "C",
+    },
+    {
+      id: 52,
+      text: "Saya tertarik dengan akuntansi atau administrasi",
+      type: "C",
+    },
+    { id: 53, text: "Saya suka bekerja dengan data dan angka", type: "C" },
+    {
+      id: 54,
+      text: "Saya tertarik untuk mengikuti prosedur dan aturan yang jelas",
+      type: "C",
+    },
+    { id: 55, text: "Saya suka pekerjaan yang detail dan teliti", type: "C" },
+    {
+      id: 56,
+      text: "Saya tertarik dengan sistem informasi atau database",
+      type: "C",
+    },
+    {
+      id: 57,
+      text: "Saya suka pekerjaan yang memiliki rutinitas yang jelas",
+      type: "C",
+    },
+    {
+      id: 58,
+      text: "Saya tertarik dengan analisis keuangan atau audit",
+      type: "C",
+    },
+    {
+      id: 59,
+      text: "Saya suka mengorganisir dokumen dan informasi",
+      type: "C",
+    },
     {
       id: 60,
       text: "Saya tertarik dengan pekerjaan yang membutuhkan keakuratan tinggi",
