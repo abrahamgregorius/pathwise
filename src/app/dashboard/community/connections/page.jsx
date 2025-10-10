@@ -190,7 +190,7 @@ export default function ConnectionsPage() {
                   <img
                     src={person.avatar || "/placeholder.svg"}
                     alt={person.name}
-                    className="w-16 h-16 rounded-full mx-auto mb-4"
+                    className="w-16 h-16 rounded-full mx-auto mb-4 object-cover"
                   />
                   <h3 className="font-bold text-gray-900">{person.name}</h3>
                   <p className="text-gray-600 text-sm">{person.title}</p>

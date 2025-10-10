@@ -526,21 +526,21 @@ export default function Home() {
               {
                 name: "Sarah Putri",
                 role: "Software Engineer at Tokopedia",
-                image: "/placeholder.svg?height=60&width=60",
+                avatar: "https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
                 quote:
                   "PathWise mengubah hidup saya! Dari fresh graduate bingung menjadi software engineer di unicorn startup dalam 6 bulan.",
               },
               {
                 name: "Ahmad Rizki",
                 role: "Data Analyst at Gojek",
-                image: "/placeholder.svg?height=60&width=60",
+                avatar: "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3BsYXlcLzBiN2Y0ZTliLWY1OWMtNDAyNC05ZjA2LWIzZGMxMjg1MGFiNy0xOTIwLTEwODAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo4Mjh9fX0=",
                 quote:
                   "Mentoring 1-on-1 dan AI career mapping benar-benar membantu saya menemukan passion di bidang data science.",
               },
               {
                 name: "Dinda Maharani",
                 role: "Product Manager at Shopee",
-                image: "/placeholder.svg?height=60&width=60",
+                image: "https://img.freepik.com/foto-gratis/gadis-muda-cantik-berpose-dengan-jaket-kulit-hitam-di-taman_1153-8104.jpg?semt=ais_hybrid&w=740&q=80",
                 quote:
                   "Interview simulator AI-nya luar biasa! Confidence saya meningkat drastis dan berhasil lolos interview impian.",
               },
@@ -555,7 +555,7 @@ export default function Home() {
                     alt={testimonial.name}
                     width={200}
                     height={0}
-                    className="w-12 h-12 rounded-full mr-4"
+                    className="w-12 h-12 rounded-full mr-4 object-cover"
                   />
                   <div>
                     <h4 className="font-semibold text-gray-900">

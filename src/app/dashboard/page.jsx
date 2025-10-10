@@ -96,7 +96,7 @@ export default function DashboardHome() {
       location: "Jakarta",
       type: "Full-time",
       match: "95%",
-      logo: "/placeholder.svg?height=40&width=40",
+      logo: "https://avatars.githubusercontent.com/u/10230001?s=280&v=4",
     },
     {
       title: "UI/UX Designer",
@@ -104,7 +104,7 @@ export default function DashboardHome() {
       location: "Jakarta",
       type: "Full-time",
       match: "88%",
-      logo: "/placeholder.svg?height=40&width=40",
+      logo: "https://yt3.googleusercontent.com/VODMS6vAfBMjEmr--IsnIMH7flki7ewherbq_NJg37oj46c3IQchOHU8GqMITGN2zOS10EwctA=s900-c-k-c0x00ffffff-no-rj",
     },
     {
       title: "Product Manager",
@@ -112,7 +112,7 @@ export default function DashboardHome() {
       location: "Jakarta",
       type: "Full-time",
       match: "82%",
-      logo: "/placeholder.svg?height=40&width=40",
+      logo: "https://yt3.googleusercontent.com/m6n-XR5esmAezvZ-FNmwN4HYt4z2g07iTZ-zqEmkEIPuOF_xFYCazXBTQJAFJL1Zgpne1IZ65A=s900-c-k-c0x00ffffff-no-rj",
     },
   ];
 
@@ -330,7 +330,7 @@ export default function DashboardHome() {
                   <img
                     src={job.logo || "/placeholder.svg"}
                     alt={job.company}
-                    className="w-10 h-10 rounded-lg"
+                    className="w-10 h-10 rounded-lg object-cover"
                   />
                   <div>
                     <h3 className="font-semibold text-gray-900">{job.title}</h3>
